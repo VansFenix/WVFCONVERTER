@@ -7,7 +7,7 @@
 Вставь ссылки `vless://`, `vmess://`, `trojan://` или base64-подписку — получи готовый конфиг
 для Clash Meta, sing-box, Xray и любого другого клиента. Без регистрации, без серверов, без captcha.
 
-[🌐 Открыть приложение](https://github.com/VansFenix/WVFCONVERTER) · [✈️ Telegram](https://t.me/wildVF)
+[🌐 Открыть приложение](https://vansfenix.github.io/WVFCONVERTER/) · [✈️ Telegram](https://t.me/wildVF)
 
 ![React](https://img.shields.io/badge/React-19.2-61dafb?logo=react&logoColor=white&style=for-the-badge)
 ![Vite](https://img.shields.io/badge/Vite-7-646cff?logo=vite&logoColor=white&style=for-the-badge)
