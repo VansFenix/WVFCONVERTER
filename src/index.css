@@ -1,0 +1,232 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+
+  --color-void: #05060f;
+  --color-void-2: #080a18;
+  --color-glass: rgba(255, 255, 255, 0.04);
+
+  --animate-aurora: aurora 22s ease-in-out infinite alternate;
+  --animate-aurora-slow: aurora 34s ease-in-out infinite alternate-reverse;
+  --animate-float: float 9s ease-in-out infinite;
+  --animate-shimmer: shimmer 3s linear infinite;
+  --animate-scanline: scanline 6s linear infinite;
+  --animate-marquee: marquee 38s linear infinite;
+  --animate-spin-slow: spin 18s linear infinite;
+  --animate-pulse-ring: pulseRing 3s ease-out infinite;
+  --animate-blink: blink 1.1s step-end infinite;
+  --animate-grid: gridMove 20s linear infinite;
+}
+
+@keyframes aurora {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: translate3d(6%, -8%, 0) scale(1.18);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate3d(-7%, 6%, 0) scale(1.05);
+    opacity: 0.5;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1200%);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes pulseRing {
+  0% {
+    transform: scale(0.85);
+    opacity: 0.7;
+  }
+  80%,
+  100% {
+    transform: scale(1.6);
+    opacity: 0;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes gridMove {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 60px 60px;
+  }
+}
+
+:root {
+  --a1: #8b5cf6;
+  --a2: #c084fc;
+  --a3: #22d3ee;
+  --a-bg: #141a44;
+  --contrast: 1;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: #05060f;
+  color: #e6e8f2;
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--a1) 40%, transparent);
+  color: #fff;
+}
+
+.field:focus,
+textarea.field:focus {
+  border-color: color-mix(in srgb, var(--a1) 55%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--a1) 18%, transparent);
+}
+
+input[type="range"] {
+  accent-color: var(--a1);
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, rgba(139, 92, 246, 0.6), rgba(34, 211, 238, 0.5));
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, rgba(167, 139, 250, 0.9), rgba(103, 232, 249, 0.8));
+  background-clip: padding-box;
+}
+
+@utility glass {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.07),
+    rgba(255, 255, 255, 0.02)
+  );
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+}
+
+@utility text-gradient {
+  background: linear-gradient(100deg, var(--a1) 0%, var(--a2) 35%, var(--a3) 70%, var(--a1) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: shimmer 6s linear infinite;
+  filter: brightness(calc(0.7 + var(--contrast) * 0.45));
+}
+
+@utility accent-bg {
+  background-image: linear-gradient(100deg, var(--a1), var(--a2), var(--a3));
+  background-size: 200% auto;
+}
+
+@utility accent-text {
+  color: var(--a2);
+}
+
+@utility accent-ring {
+  --tw-ring-color: color-mix(in srgb, var(--a1) 45%, transparent);
+}
+
+@utility accent-soft {
+  background: color-mix(in srgb, var(--a1) 14%, transparent);
+  border-color: color-mix(in srgb, var(--a1) 32%, transparent);
+  color: color-mix(in srgb, var(--a2) 82%, white);
+}
+
+@utility accent-glow {
+  box-shadow: 0 12px 44px -14px color-mix(in srgb, var(--a1) 85%, transparent);
+}
+
+@utility field {
+  width: 100%;
+  border-radius: 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 0.6rem 0.8rem;
+  font-size: 0.8125rem;
+  color: #e2e8f0;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+@utility field-focus {
+  border-color: color-mix(in srgb, var(--a1) 55%, transparent);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--a1) 18%, transparent);
+}
+
+@utility grid-bg {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
